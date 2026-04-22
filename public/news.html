@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Новости | Кабинет косметологии by Boiko Olesia</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- ШАПКА -->
+<div class="header">
+    <div class="container">
+        <a href="index.html" class="logo">Кабинет косметологии <span>by Boiko Olesia</span></a>
+        <div class="burger" id="burgerBtn"><span></span><span></span><span></span></div>
+        <div class="nav" id="navMenu">
+            <a href="changelog.html">Что нового?</a>
+            <a href="index.html">Главная</a>
+            <a href="services.html">Услуги</a>
+            <a href="contacts.html">Контакты</a>
+            <a href="licenses.html">Лицензии</a>
+            <a href="news.html">Новости</a>
+            <div class="dropdown">
+                <a href="#" class="dropbtn">О нас</a>
+                <div class="dropdown-content">
+                    <a href="about.html">О клинике</a>
+                    <a href="doctors.html">Наши врачи</a>
+                    <a href="reviews.html">Отзывы</a>
+                    <a href="vacancies.html">Вакансии</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<main>
+    <div class="container">
+        <h1 class="page-title">Новости клиники</h1>
+        <div id="news-list-container" class="news-grid"></div>
+    </div>
+</main>
+
+<!-- ПОДВАЛ -->
+<div class="footer container">
+    <p>© 2026 Косметологическая клиника — Новосибирск</p>
+    <p style="font-size: 12px; margin-top: 8px;">*Имеются противопоказания, необходима консультация специалиста</p>
+    <a href="https://max.ru/u/f9LHodD0cOLWiEgRhCEgfaOuINjwMWbU_dWpgs8yVqMPhD2Jj-6M0Y_9y_U" target="_blank" rel="noopener noreferrer">Написать разработчику</a><br>
+    <p><a href="privacy.html" style="color: #8A8A8A; text-decoration: underline;">Политика конфиденциальности</a></p>
+    <p><a href="/admin/login.html" style="color: #8A8A8A; text-decoration: underline;">Вход для администратора</a></p>
+</div>
+
+<script src="main.js" defer></script>
+<script>
+    // Загрузка новостей для страницы news.html
+    async function loadAllNews() {
+        const container = document.getElementById('news-list-container');
+        if (!container) return;
+
+        try {
+            const response = await fetch('/api/news');
+            const news = await response.json();
+
+            if (news.length === 0) {
+                container.innerHTML = '<p style="text-align: center;">Новостей пока нет</p>';
+                return;
+            }
+
+            container.innerHTML = news.map(item => `
+                <div class="news-item">
+                    <h3 class="news-title">${escapeHtml(item.title)}</h3>
+                    <div class="news-date">${new Date(item.created_at).toLocaleDateString('ru-RU')}</div>
+                    <div class="news-content">${escapeHtml(item.content)}</div>
+                </div>
+            `).join('');
+        } catch (error) {
+            console.error('Ошибка загрузки новостей:', error);
+            container.innerHTML = '<p style="text-align: center;">Ошибка загрузки новостей</p>';
+        }
+    }
+
+    function escapeHtml(text) {
+        const div = document.createElement('div');
+        div.textContent = text;
+        return div.innerHTML;
+    }
+
+    document.addEventListener('DOMContentLoaded', loadAllNews);
+</script>
+</body>
+</html>

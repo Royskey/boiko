@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Админ-панель | Кабинет косметологии</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Montserrat', sans-serif; background: #FDFCFA; padding: 20px; }
+        .container { max-width: 1400px; margin: 0 auto; }
+        .header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid #E9E4DD; flex-wrap: wrap; gap: 15px; }
+        h1 { font-family: 'Playfair Display', serif; font-size: 28px; }
+        .logout-btn { background: #2E2E2E; color: white; padding: 8px 20px; border-radius: 30px; text-decoration: none; }
+        .stats { display: flex; gap: 20px; margin-bottom: 30px; flex-wrap: wrap; }
+        .stat-card { background: white; padding: 20px; border-radius: 20px; border: 1px solid #F0EDE8; flex: 1; min-width: 120px; text-align: center; }
+        .stat-number { font-size: 32px; font-weight: 700; color: #C7A07A; }
+        .stat-label { font-size: 14px; color: #6C6C6C; }
+        .tabs { display: flex; gap: 8px; margin-bottom: 20px; flex-wrap: wrap; border-bottom: 1px solid #E9E4DD; padding-bottom: 10px; }
+        .tab { padding: 10px 20px; cursor: pointer; border-radius: 30px; transition: all 0.2s; background: #F5F2EF; }
+        .tab.active { background: #C7A07A; color: white; }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+        
+        table { width: 100%; border-collapse: collapse; background: white; border-radius: 20px; overflow: hidden; }
+        th, td { padding: 12px; text-align: left; border-bottom: 1px solid #F0EDE8; }
+        th { background: #F5F2EF; font-weight: 600; }
+        select, button { padding: 6px 12px; border-radius: 20px; border: 1px solid #E0DCD6; background: white; cursor: pointer; }
+        .btn-delete { background: #d9534f; color: white; border: none; }
+        .btn-save { background: #5cb85c; color: white; border: none; }
+        .btn-add { background: #C7A07A; color: white; border: none; padding: 10px 20px; margin-bottom: 20px; }
+        
+        .edit-card { background: white; border-radius: 20px; padding: 20px; margin-bottom: 15px; border: 1px solid #F0EDE8; }
+        .edit-card input, .edit-card textarea { width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #E0DCD6; border-radius: 12px; }
+        .edit-card textarea { min-height: 80px; }
+        .edit-card-header { display: flex; gap: 10px; }
+        .edit-card-header input { flex: 1; }
+        .edit-card-actions { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; margin-top: 10px; }
+        
+        .gallery-item-admin { background: white; border-radius: 16px; padding: 15px; text-align: center; border: 1px solid #F0EDE8; }
+        .gallery-item-admin img { width: 150px; height: 150px; object-fit: cover; border-radius: 12px; margin-bottom: 10px; }
+        .gallery-grid-admin { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 20px; margin-top: 20px; }
+        
+        .calendar-weekdays { display: grid; grid-template-columns: repeat(7, 1fr); text-align: center; font-weight: 600; padding: 10px 0; background: #F5F2EF; border-radius: 16px; margin-bottom: 10px; }
+        .calendar-days { display: grid; grid-template-columns: repeat(7, 1fr); gap: 8px; }
+        .calendar-day { background: white; border: 1px solid #F0EDE8; border-radius: 12px; padding: 12px 8px; text-align: center; cursor: pointer; position: relative; min-height: 70px; }
+        .calendar-day:hover { background: #FDFCFA; transform: translateY(-2px); }
+        .calendar-day.empty { background: #F9F9F9; cursor: default; }
+        .calendar-day.has-appointments { background: #FFF8F0; border-color: #C7A07A; }
+        .day-number { font-size: 18px; font-weight: 600; }
+        .appointment-badge { position: absolute; top: 5px; right: 8px; background: #C7A07A; color: white; font-size: 11px; padding: 2px 6px; border-radius: 20px; }
+        
+        @media (max-width: 700px) {
+            table, thead, tbody, th, td, tr { display: block; }
+            th { display: none; }
+            td { display: flex; justify-content: space-between; align-items: center; padding: 10px; }
+            td::before { content: attr(data-label); font-weight: 600; width: 40%; }
+            .edit-card-header { flex-direction: column; }
+            .calendar-day { min-height: 50px; padding: 8px 4px; }
+            .day-number { font-size: 14px; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <h1>📋 Админ-панель</h1>
+        <a href="#" class="logout-btn" onclick="logout()">Выйти</a>
+    </div>
+    
+    <div class="stats" id="stats"></div>
+    
+    <div class="tabs">
+        <div class="tab active" data-tab="applications">📝 Заявки</div>
+        <div class="tab" data-tab="calendar">📅 Календарь</div>
+        <div class="tab" data-tab="services">💎 Услуги</div>
+        <div class="tab" data-tab="reviews">⭐ Отзывы</div>
+        <div class="tab" data-tab="doctors">👨‍⚕️ Врачи</div>
+        <div class="tab" data-tab="gallery">🖼️ Галерея</div>
+        <div class="tab" data-tab="news">📰 Новости</div>
+    </div>
+    
+    <!-- Заявки -->
+    <div id="applications-tab" class="tab-content active">
+        <div style="overflow-x: auto;">
+            <table id="applications-table">
+                <thead><tr><th>ID</th><th>Дата</th><th>Имя</th><th>Телефон</th><th>Услуга</th><th>Статус</th><th>Действия</th></tr></thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+    
+    <!-- Календарь -->
+    <div id="calendar-tab" class="tab-content">
+        <div style="background: white; border-radius: 20px; padding: 20px; margin-bottom: 20px;">
+            <input type="month" id="calendar-month" style="padding: 10px; border-radius: 16px; border: 1px solid #E0DCD6;">
+            <button onclick="loadCalendar()" style="margin-left: 10px;">Показать</button>
+        </div>
+        <div id="calendar-grid" style="background: white; border-radius: 20px; padding: 20px;"></div>
+        <div id="calendar-appointments" style="margin-top: 30px; background: white; border-radius: 20px; padding: 20px;">
+            <h3>📋 Заявки на выбранный день</h3>
+            <div id="day-appointments"></div>
+        </div>
+    </div>
+    
+    <!-- Услуги -->
+    <div id="services-tab" class="tab-content">
+        <button class="btn-add" onclick="addService()">➕ Добавить услугу</button>
+        <div id="services-list"></div>
+    </div>
+    
+    <!-- Отзывы -->
+    <div id="reviews-tab" class="tab-content">
+        <button class="btn-add" onclick="addReview()">➕ Добавить отзыв</button>
+        <div id="reviews-list"></div>
+    </div>
+    
+    <!-- Врачи -->
+    <div id="doctors-tab" class="tab-content">
+        <button class="btn-add" onclick="addDoctor()">➕ Добавить врача</button>
+        <div id="doctors-list"></div>
+    </div>
+    
+    <!-- Галерея -->
+    <div id="gallery-tab" class="tab-content">
+        <button class="btn-add" onclick="addGalleryItem()">➕ Добавить фото</button>
+        <div id="gallery-list" class="gallery-grid-admin"></div>
+    </div>
+    
+    <!-- Новости -->
+    <div id="news-tab" class="tab-content">
+        <button class="btn-add" onclick="addNews()">➕ Добавить новость</button>
+        <div id="news-list"></div>
+    </div>
+</div>
+<script src="admin.js"></script>
+</body>
+</html>

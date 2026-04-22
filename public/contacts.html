@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Контакты и адрес | Косметологическая клиника</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<div class="header">
+    <div class="container">
+        <a href="index.html" class="logo">Кабинет косметологии <span style="font-weight: 600;">by Boiko Olesia</span></a>
+        <div class="burger" id="burgerBtn">
+            <span></span><span></span><span></span>
+        </div>
+        <div class="nav" id="navMenu">
+            <a href="changelog.html">Что нового?</a>
+            <a href="index.html">Главная</a>
+            <a href="services.html">Услуги</a>
+            <a href="contacts.html">Контакты</a>
+            <a href="licenses.html">Лицензии</a>
+            <div class="dropdown">
+                <a href="#" class="dropbtn">О нас</a>
+                <div class="dropdown-content">
+                    <a href="about.html">О клинике</a>
+                    <a href="doctors.html">Наши врачи</a>
+                    <a href="reviews.html">Отзывы</a>
+                    <a href="vacancies.html">Вакансии</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<main>
+    <div class="container">
+        <h1 class="page-title">Контакты и адрес</h1>
+
+        <div class="contacts-grid">
+            <div class="contact-card">
+                <div class="contact-icon">📱</div>
+                <h3>Telegram</h3>
+                <a href="https://t.me/hahahustla" target="_blank">Написать в Telegram</a>
+            </div>
+            <div class="contact-card">
+                <div class="contact-icon">📞</div>
+                <h3>По телефону</h3>
+                <a href="tel:+79991234567">+7 (999) 123-45-67</a>
+            </div>
+            <div class="contact-card">
+                <div class="contact-icon">📧</div>
+                <h3>Email</h3>
+                <a href="mailto:info@cosmetology.ru">info@cosmetology.ru</a>
+            </div>
+        </div>
+
+        <div class="address-detail">
+            <p><strong>📍 Новосибирск, ул. Ленина, 3</strong></p>
+            <p>Вход со двора, 3 этаж, офис 335</p>
+        </div>
+
+        <div class="work-hours">
+            <h3>🕒 Режим работы</h3>
+            <table class="work-table">
+                <tr><td>Понедельник – Пятница</td><td>9:00 – 22:00</td></tr>
+                <tr><td>Суббота</td><td>Выходной</td></tr>
+                <tr><td>Воскресенье</td><td>9:00 – 22:00</td></tr>
+            </table>
+        </div>
+
+        <div class="map-container">
+            <iframe src="https://yandex.ru/map-widget/v1/?ll=82.917065,55.029534&z=17&pt=82.917065,55.029534,flag" allowfullscreen></iframe>
+        </div>
+
+        <div style="text-align: center;">
+            <button class="btn-telegram" onclick="openModal()">📝 Записаться на приём</button>
+        </div>
+    </div>
+</main>
+
+<div class="footer container">
+    <p>© 2026 Косметологическая клиника — Новосибирск</p>
+    <p style="font-size: 12px; margin-top: 8px;">*Имеются противопоказания, необходима консультация специалиста</p>
+    <a href="https://max.ru/u/f9LHodD0cOLWiEgRhCEgfaOuINjwMWbU_dWpgs8yVqMPhD2Jj-6M0Y_9y_U" target="_blank" rel="noopener noreferrer">Написать разработчику</a><br>
+    <p><a href="privacy.html" style="color: #8A8A8A; text-decoration: underline;">Политика конфиденциальности</a></p>
+    <p>Дизайн и разработка: Royskey</p>
+</div>
+
+<!-- МОДАЛЬНАЯ ФОРМА -->
+<div id="modal-form" class="modal-form">
+    <div class="modal-form-content">
+        <span class="modal-form-close">&times;</span>
+        <div class="modal-form-header">
+            <h2>Записаться на приём</h2>
+            <p>Заполните форму, и мы свяжемся с вами</p>
+        </div>
+        <form id="beauty-application-form">
+            <div class="form-group">
+                <label for="modal-name">Ваше имя *</label>
+                <input type="text" id="modal-name" name="name" required>
+                <span class="form-error" id="name-error"></span>
+            </div>
+            <div class="form-group">
+                <label for="modal-phone">Номер телефона *</label>
+                <input type="tel" id="modal-phone" name="phone" placeholder="+7 (___) ___-__-__" required>
+                <span class="form-error" id="phone-error"></span>
+            </div>
+            <div class="form-group">
+                <label for="modal-service">Услуга (по желанию)</label>
+                <select id="modal-service" name="service">
+                    <option value="">Выберите услугу</option>
+                    <option>Первичная консультация</option>
+                    <option>Чистка лица</option>
+                    <option>Пилинг</option>
+                    <option>Биоревитализация</option>
+                    <option>Контурная пластика</option>
+                    <option>Ботулинотерапия</option>
+                    <option>Уходовая программа</option>
+                </select>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="modal-date">Удобная дата</label>
+                    <input type="date" id="modal-date" name="date">
+                </div>
+                <div class="form-group">
+                    <label for="modal-time">Удобное время</label>
+                    <input type="time" id="modal-time" name="time">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="modal-message">Комментарий</label>
+                <textarea id="modal-message" name="message" rows="3" placeholder="Дополнительная информация..."></textarea>
+            </div>
+            <div class="form-checkbox">
+                <input type="checkbox" id="modal-consent" name="consent" required>
+                <label for="modal-consent">Я соглашаюсь на <a href="privacy.html" target="_blank">обработку персональных данных</a></label>
+            </div>
+            <button type="submit" class="modal-submit-btn">Отправить заявку</button>
+            <div id="modal-form-status" class="form-status"></div>
+        </form>
+    </div>
+</div>
+
+<script src="main.js" defer></script>
+
+<div id="cookie-banner" style="position: fixed; bottom: 0; left: 0; right: 0; background: #2E2E2E; color: white; padding: 15px 20px; text-align: center; z-index: 1000; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; font-size: 14px;">
+    <span>Мы используем файлы cookie для улучшения работы сайта. Продолжая использовать сайт, вы соглашаетесь с <a href="privacy.html" style="color: #C7A07A; text-decoration: underline;">политикой конфиденциальности</a>.</span>
+    <button id="accept-cookies" style="background: #C7A07A; border: none; color: white; padding: 8px 25px; border-radius: 30px; cursor: pointer; font-weight: 600;">Принять</button>
+</div>
+
+</body>
+</html>

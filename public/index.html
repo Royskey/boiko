@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Кабинет косметологии by Boiko Olesia | Главная</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<div class="header">
+    <div class="container">
+        <a href="index.html" class="logo">Кабинет косметологии <span style="font-weight: 700;">by Boiko Olesia</span></a>
+        <div class="burger" id="burgerBtn">
+            <span></span><span></span><span></span>
+        </div>
+        <div class="nav" id="navMenu">
+            <a href="index.html">Главная</a>
+            <a href="services.html">Услуги</a>
+            <a href="contacts.html">Контакты</a>
+            <a href="licenses.html">Лицензии</a>
+            <a href="news.html">Новости</a>
+            <div class="dropdown">
+                <a href="#" class="dropbtn">О нас</a>
+                <div class="dropdown-content">
+                    <a href="about.html">О клинике</a>
+                    <a href="doctors.html">Наши врачи</a>
+                    <a href="reviews.html">Отзывы</a>
+                    <a href="vacancies.html">Вакансии</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<main>
+    <div class="hero container">
+        <div class="hero-content">
+            <h1 class="hero-title">Красота, которая рождается <span class="accent">снаружи</span></h1>
+            <p class="hero-subtitle">Премиальная косметология в Новосибирске. Доверьте свою кожу профессионалам.</p>
+            <button class="btn-telegram" onclick="openModal()">📝 Записаться на приём</button>
+        </div>
+        <div class="hero-image">
+            <img src="https://www.apriori-dz.ru/images/weare4.jpg" alt="Косметология">
+        </div>
+    </div>
+
+    <div class="mission">
+        <div class="container">
+            <h2>Наша миссия</h2>
+            <p>Дарить уверенность через естественную красоту. Мы используем только проверенные методики и премиальные препараты, чтобы подчеркнуть вашу индивидуальность.</p>
+            <div class="slogan">«Ваша кожа заслуживает лучшего»</div>
+        </div>
+    </div>
+
+    <div class="gallery container">
+        <h2 class="section-title">Интерьер клиники</h2>
+        <div class="section-sub">Пространство для вашего комфорта и красоты</div>
+        <div class="gallery-grid">
+            <div class="gallery-item"><img src="img/g1.jpg" alt="Интерьер 1"></div>
+            <div class="gallery-item"><img src="img/g2.jpg" alt="Интерьер 2"></div>
+            <div class="gallery-item"><img src="img/g3.jpg" alt="Интерьер 3"></div>
+            <div class="gallery-item"><img src="img/g4.jpg" alt="Интерьер 4"></div>
+        </div>
+    </div>
+
+    <div class="values">
+        <div class="container">
+            <h2 class="section-title">Почему выбирают нас</h2>
+            <div class="values-grid">
+                <div class="value-card"><div class="value-icon">💎</div><h4>Премиум-препараты</h4><p>Только сертифицированные средства</p></div>
+                <div class="value-card"><div class="value-icon">🕊️</div><h4>Комфорт и безопасность</h4><p>Индивидуальные протоколы</p></div>
+                <div class="value-card"><div class="value-icon">📈</div><h4>Реальный результат</h4><p>До/После 3000+ клиентов</p></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="services container">
+        <h2 class="section-title">Популярные процедуры</h2>
+        <div class="section-sub">То, что выбирают чаще всего</div>
+        <div class="services-grid">
+            <div class="service-card" data-animate>
+                <img class="service-img" src="img/pr1.jpg" alt="Биоревитализация">
+                <div class="service-info">
+                    <div class="service-name">Биоревитализация</div>
+                    <div class="service-price">от 12 500 ₽</div>
+                    <div class="service-desc">Глубокое увлажнение, восстановление тонуса.</div>
+                </div>
+            </div>
+            <div class="service-card" data-animate>
+                <img class="service-img" src="img/pr2.jpg" alt="Контурная пластика">
+                <div class="service-info">
+                    <div class="service-name">Контурная пластика</div>
+                    <div class="service-price">от 18 900 ₽</div>
+                    <div class="service-desc">Гармоничная коррекция губ и скул.</div>
+                </div>
+            </div>
+            <div class="service-card" data-animate>
+                <img class="service-img" src="img/pr3.jpg" alt="Ботулинотерапия">
+                <div class="service-info">
+                    <div class="service-name">Ботулинотерапия</div>
+                    <div class="service-price">от 9 900 ₽</div>
+                    <div class="service-desc">Мягкое разглаживание морщин.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="reviews">
+        <div class="container">
+            <h2 class="section-title">Отзывы наших клиентов</h2>
+            <div class="section-sub">Реальные люди — реальные результаты</div>
+            <div class="reviews-grid">
+                <div class="review-card"><div class="review-text">«Отличная клиника! Делала биоревитализацию — результат уже через неделю. Персонал вежливый, атмосфера уютная.»</div><div class="review-author">Анна К.</div></div>
+                <div class="review-card"><div class="review-text">«Хожу сюда уже год, очень довольна. Врачи всегда подбирают индивидуальный уход. Рекомендую!»</div><div class="review-author">Екатерина П.</div></div>
+                <div class="review-card"><div class="review-text">«Прекрасное место, современное оборудование. Цены адекватные, результат превосходный. Спасибо!»</div><div class="review-author">Мария В.</div></div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<div class="footer container">
+    <p>© 2026 Косметологическая клиника — Новосибирск</p>
+    <p style="font-size: 12px; margin-top: 8px;">*Имеются противопоказания, необходима консультация специалиста</p>
+    <a href="https://max.ru/u/f9LHodD0cOLWiEgRhCEgfaOuINjwMWbU_dWpgs8yVqMPhD2Jj-6M0Y_9y_U" target="_blank" rel="noopener noreferrer">Написать разработчику</a><br>
+    <p><a href="privacy.html" style="color: #8A8A8A; text-decoration: underline;">Политика конфиденциальности</a></p>
+    <p><a href="/admin/login.html" style="color: #8A8A8A; text-decoration: underline;">Вход для администратора</a></p>
+</div>
+
+<div style="position: fixed; bottom: 20px; right: 20px; font-size: 22px; font-weight: 500; color: rgba(0,0,0,0.15); background: transparent; padding: 10px; z-index: 1000; font-family: 'Montserrat', sans-serif; letter-spacing: 1px;">
+    Дизайн и разработка: <a href="https://max.ru/u/f9LHodD0cOLWiEgRhCEgfaOuINjwMWbU_dWpgs8yVqMPhD2Jj-6M0Y_9y_U" target="_blank" rel="noopener noreferrer">Royskey</a>
+</div>
+
+<!-- МОДАЛЬНАЯ ФОРМА -->
+<div id="modal-form" class="modal-form">
+    <div class="modal-form-content">
+        <span class="modal-form-close">&times;</span>
+        <div class="modal-form-header">
+            <h2>Записаться на приём</h2>
+            <p>Заполните форму, и мы свяжемся с вами в ближайшее время</p>
+        </div>
+        <form id="beauty-application-form">
+            <div class="form-group">
+                <label for="modal-name">Ваше имя *</label>
+                <input type="text" id="modal-name" name="name" required>
+                <span class="form-error" id="name-error"></span>
+            </div>
+            <div class="form-group">
+                <label for="modal-phone">Номер телефона *</label>
+                <input type="tel" id="modal-phone" name="phone" placeholder="+7 (___) ___-__-__" required>
+                <span class="form-error" id="phone-error"></span>
+            </div>
+            <div class="form-group">
+                <label for="modal-service">Услуга (по желанию)</label>
+                <select id="modal-service" name="service">
+                    <option value="">Выберите услугу</option>
+                    <option>Первичная консультация</option>
+                    <option>Чистка лица</option>
+                    <option>Пилинг</option>
+                    <option>Биоревитализация</option>
+                    <option>Контурная пластика</option>
+                    <option>Ботулинотерапия</option>
+                    <option>Уходовая программа</option>
+                </select>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="modal-date">Удобная дата</label>
+                    <input type="date" id="modal-date" name="date">
+                </div>
+                <div class="form-group">
+                    <label for="modal-time">Удобное время</label>
+                    <input type="time" id="modal-time" name="time">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="modal-message">Комментарий</label>
+                <textarea id="modal-message" name="message" rows="3" placeholder="Дополнительная информация..."></textarea>
+            </div>
+            <div class="form-checkbox">
+                <input type="checkbox" id="modal-consent" name="consent" required>
+                <label for="modal-consent">Я соглашаюсь на <a href="privacy.html" target="_blank">обработку персональных данных</a></label>
+            </div>
+            <button type="submit" class="modal-submit-btn">Отправить заявку</button>
+            <div id="modal-form-status" class="form-status"></div>
+        </form>
+    </div>
+</div>
+
+<script src="main.js" defer></script>
+
+<div id="cookie-banner" style="position: fixed; bottom: 0; left: 0; right: 0; background: #2E2E2E; color: white; padding: 15px 20px; text-align: center; z-index: 1000; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; font-size: 14px;">
+    <span>Мы используем файлы cookie для улучшения работы сайта. Продолжая использовать сайт, вы соглашаетесь с <a href="privacy.html" style="color: #C7A07A; text-decoration: underline;">политикой конфиденциальности</a>.</span>
+    <button id="accept-cookies" style="background: #C7A07A; border: none; color: white; padding: 8px 25px; border-radius: 30px; cursor: pointer; font-weight: 600;">Принять</button>
+</div>
+
+</body>
+</html>

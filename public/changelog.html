@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Что нового | Кабинет косметологии by Boiko Olesia</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #FDFCFA;
+            font-family: 'Montserrat', sans-serif;
+            color: #2E2E2E;
+            line-height: 1.5;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-size: 32px;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        .sub {
+            color: #6C6C6C;
+            font-size: 14px;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #E9E4DD;
+        }
+
+        .developer-link {
+            margin-bottom: 20px;
+        }
+
+        .developer-link a {
+            color: #C7A07A;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .last-update {
+            font-size: 13px;
+            color: #8A8A8A;
+            margin-bottom: 30px;
+        }
+
+        /* Карточки изменений */
+        .changes-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+
+        .change-card {
+            background: #FFFFFF;
+            border-radius: 20px;
+            padding: 20px 25px;
+            border: 1px solid #F0EDE8;
+        }
+
+        .change-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 15px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid #F0EDE8;
+        }
+
+        .change-icon {
+            font-size: 28px;
+        }
+
+        .change-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: #1A1A1A;
+        }
+
+        .change-list {
+            list-style: none;
+            padding-left: 40px;
+        }
+
+        .change-list li {
+            font-size: 14px;
+            color: #5A5A5A;
+            margin-bottom: 8px;
+            position: relative;
+        }
+
+        .change-list li::before {
+            content: "—";
+            position: absolute;
+            left: -20px;
+            color: #C7A07A;
+        }
+
+        .stats {
+            background: #F5F2EF;
+            padding: 20px;
+            border-radius: 20px;
+            margin-bottom: 30px;
+        }
+
+        .stats h3 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .stats-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 25px;
+        }
+
+        .stat-item {
+            font-size: 13px;
+        }
+
+        .stat-number {
+            font-weight: 700;
+            color: #C7A07A;
+            margin-right: 5px;
+            font-size: 18px;
+        }
+
+        .back-home {
+            display: inline-block;
+            color: #C7A07A;
+            text-decoration: none;
+            font-size: 14px;
+            margin-top: 20px;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #E9E4DD;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Что нового?</h1>
+    <div class="sub">Обновления сайта</div>
+
+    <div class="developer-link">
+        ✉️ <a href="https://max.ru/u/f9LHodD0cOLWiEgRhCEgfaOuINjwMWbU_dWpgs8yVqMPhD2Jj-6M0Y_9y_U" target="_blank">Написать разработчику</a>
+    </div>
+
+    <div class="last-update">
+        📅 Обновлено: <strong>17 апреля 2026</strong>
+    </div>
+
+    <div class="changes-grid">
+        <!-- Внешние изменения (видно пользователю) -->
+        <div class="change-card">
+            <div class="change-header">
+                <span class="change-icon">👁️</span>
+                <div class="change-title">Что изменилось на виду</div>
+            </div>
+            <ul class="change-list">
+                <li>Добавлен новый раздел меню «Отзывы»</li>
+                <li>Починили выпадающее меню «О нас» — теперь оно работает на всех страницах</li>
+                <li>Страница «Отзывы» теперь открывается из меню</li>
+                <li>Страница «Что нового?» — вы сейчас на ней</li>
+                <li>Исправлены ссылки, которые вели не туда</li>
+            </ul>
+        </div>
+
+        <!-- Внутренние изменения (технические) -->
+        <div class="change-card">
+            <div class="change-header">
+                <span class="change-icon">⚙️</span>
+                <div class="change-title">Технические доработки</div>
+            </div>
+            <ul class="change-list">
+                <li>Поправлены пути к стилям — сайт стал грузиться без ошибок</li>
+                <li>Удалены дублирующиеся скрипты (ускорение загрузки)</li>
+                <li>Исправлена структура страницы «Лицензии»</li>
+                <li>Оптимизирована анимация — работает плавнее</li>
+                <li>Все файлы приведены к единой структуре (меньше путаницы)</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Цифры -->
+    <div class="stats">
+        <h3>📊 В цифрах</h3>
+        <div class="stats-grid">
+            <div class="stat-item"><span class="stat-number">10</span> страниц в работе</div>
+            <div class="stat-item"><span class="stat-number">5</span> внешних улучшений</div>
+            <div class="stat-item"><span class="stat-number">5</span> технических исправлений</div>
+            <div class="stat-item"><span class="stat-number">~30</span> ссылок проверено</div>
+        </div>
+    </div>
+
+    <hr>
+
+    <a href="index.html" class="back-home">← На главную</a>
+</div>
+</body>
+</html>
