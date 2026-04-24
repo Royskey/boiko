@@ -1,160 +1,46 @@
 <!DOCTYPE html>
 <html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>О клинике | Кабинет косметологии by Boiko Olesia</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-    <script src="main.js" defer></script>
-</head>
+<head><meta charset="UTF-8"><title>О клинике</title><link rel="stylesheet" href="style.css"><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet"></head>
 <body>
-
-<div class="header">
-    <div class="container">
-        <a href="index.html" class="logo">Кабинет косметологии <span style="font-weight: 600;">by Boiko Olesia</span></a>
-        <div class="burger" id="burgerBtn">
-            <span></span><span></span><span></span>
-        </div>
-        <div class="nav" id="navMenu">
-            <a href="changelog.html">Что нового?</a>
-            <a href="index.html">Главная</a>
-            <a href="services.html">Услуги</a>
-            <a href="contacts.html">Контакты</a>
-            <a href="licenses.html">Лицензии</a>
-            <div class="dropdown">
-                <a href="#" class="dropbtn">О нас</a>
-                <div class="dropdown-content">
-                    <a href="about.html">О клинике</a>
-                    <a href="doctors.html">Наши врачи</a>
-                    <a href="reviews.html">Отзывы</a>
-                    <a href="vacancies.html">Вакансии</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
+<div class="header">...</div>
 <main>
     <div class="container">
-        <h1 class="page-title">О нас</h1>
-        
+        <h1 class="page-title">О клинике</h1>
         <div class="about-content">
             <div class="about-text">
-                <h2 class="about-heading">Кто мы</h2>
-                <p class="about-paragraph">
-                    <strong>Кабинет косметологии by Boiko Olesia</strong> — это современное пространство, где забота о вашей красоте и здоровье находится на первом месте. Мы объединяем опыт, профессионализм и индивидуальный подход к каждому клиенту.
-                </p>
-
+                <h2 class="about-heading" id="aboutWhoTitle">Кто мы</h2>
+                <p class="about-paragraph" id="aboutWhoText"></p>
                 <h2 class="about-heading">Наша миссия</h2>
-                <p class="about-paragraph">
-                    Дарить уверенность через естественную красоту. Мы используем только проверенные методики и премиальные препараты, чтобы подчеркнуть вашу индивидуальность и сохранить молодость кожи без вреда для здоровья.
-                </p>
-
+                <p class="about-paragraph" id="aboutMissionText"></p>
                 <h2 class="about-heading">Почему выбирают нас</h2>
-                <ul class="about-list">
-                    <li>✔ Индивидуальный подход и персональные программы ухода</li>
-                    <li>✔ Сертифицированные препараты и современное оборудование</li>
-                    <li>✔ Врачи-косметологи с профильным образованием и опытом от 8 лет</li>
-                    <li>✔ Уютная атмосфера и полная безопасность процедур</li>
-                    <li>✔ Честные цены и прозрачная система записи</li>
-                </ul>
-
+                <ul class="about-list" id="aboutWhyList"></ul>
                 <h2 class="about-heading">Наша история</h2>
-                <p class="about-paragraph">
-                    Кабинет открыл свои двери в 2024 году. За это время мы помогли сотням клиентов обрести здоровую и сияющую кожу. Мы постоянно развиваемся, следим за новинками косметологии и внедряем лучшие практики, чтобы вы получали максимальный результат от каждой процедуры.
-                </p>
+                <p class="about-paragraph" id="aboutHistoryText"></p>
             </div>
         </div>
-
-        <div class="gallery-section">
-            <h2 class="about-heading" style="text-align: center;">Фотогалерея</h2>
-            <div class="gallery-grid">
-                <div class="gallery-item"><img src="img/g1.jpg" alt="Интерьер клиники"></div>
-                <div class="gallery-item"><img src="img/g2.jpg" alt="Процедурный кабинет"></div>
-                <div class="gallery-item"><img src="img/g3.jpg" alt="Зона ожидания"></div>
-                <div class="gallery-item"><img src="img/g4.jpg" alt="Процедура"></div>
-                <div class="gallery-item"><img src="img/pr1.jpg" alt="Косметологическая процедура"></div>
-                <div class="gallery-item"><img src="img/pr2.jpg" alt="Уход за лицом"></div>
-            </div>
-        </div>
-
-        <div class="team-section">
-            <h2 class="about-heading" style="text-align: center;">Наша команда</h2>
-            <div class="team-grid">
-                <div class="team-card">
-                    <div class="team-photo">👩‍⚕️</div>
-                    <h3 class="team-name">Олеся Бойко</h3>
-                    <p class="team-position">Врач-косметолог, основатель</p>
-                    <p class="team-desc">Стаж 8+ лет. Специалист по инъекционным методикам и аппаратной косметологии.</p>
-                </div>
-                <div class="team-card">
-                    <div class="team-photo">👩‍⚕️</div>
-                    <h3 class="team-name">Анна Смирнова</h3>
-                    <p class="team-position">Врач-дерматолог</p>
-                    <p class="team-desc">Стаж 10 лет. Эксперт по лечению акне, розацеа и пигментации.</p>
-                </div>
-                <div class="team-card">
-                    <div class="team-photo">💆‍♀️</div>
-                    <h3 class="team-name">Екатерина Морозова</h3>
-                    <p class="team-position">Косметолог-эстетист</p>
-                    <p class="team-desc">Стаж 6 лет. Мастер уходовых процедур и массажа лица.</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="facts-section">
-            <div class="facts-grid">
-                <div class="fact-card">
-                    <div class="fact-number">8+</div>
-                    <div class="fact-label">лет опыта</div>
-                </div>
-                <div class="fact-card">
-                    <div class="fact-number">3000+</div>
-                    <div class="fact-label">довольных клиентов</div>
-                </div>
-                <div class="fact-card">
-                    <div class="fact-number">15+</div>
-                    <div class="fact-label">процедур в прайсе</div>
-                </div>
-                <div class="fact-card">
-                    <div class="fact-number">100%</div>
-                    <div class="fact-label">безопасность</div>
-                </div>
-            </div>
-        </div>
-
-        <div class="certificates-section">
-            <h2 class="about-heading" style="text-align: center;">Сертификаты и лицензии</h2>
-            <div class="certificates-grid">
-                <div class="cert-card">📜 Лицензия на мед. деятельность</div>
-                <div class="cert-card">🏅 Диплом о проф. переподготовке</div>
-                <div class="cert-card">📄 Сертификат специалиста</div>
-                <div class="cert-card">🌟 Сертификат на препараты</div>
-            </div>
-            <div class="cert-link">
-                <a href="licenses.html" class="btn-telegram" style="margin-top: 20px;">Все документы и лицензии</a>
-            </div>
-        </div>
+        <div class="gallery-section"><h2 class="about-heading" style="text-align:center;">Фотогалерея</h2><div class="gallery-grid" id="aboutGalleryGrid"></div></div>
+        <div class="team-section"><h2 class="about-heading" style="text-align:center;">Наша команда</h2><div class="doctors-grid" id="aboutDoctorsGrid"></div></div>
     </div>
 </main>
-
-<div class="footer container">
-    <p>© 2026 Косметологическая клиника — Новосибирск</p>
-    <p class="footer-warning">*Имеются противопоказания, необходима консультация специалиста</p>
-    <a href="https://max.ru/u/f9LHodD0cOLWiEgRhCEgfaOuINjwMWbU_dWpgs8yVqMPhD2Jj-6M0Y_9y_U" target="_blank" rel="noopener noreferrer">Написать разработчику</a><br>
-    <p><a href="privacy.html" style="color: #8A8A8A; text-decoration: underline;">Политика конфиденциальности</a></p>
-    <p>Дизайн и разработка: Royskey</p>
-</div>
-
-<div class="watermark">
-    Дизайн и разработка: Royskey
-</div>
-
-<div id="cookie-banner" style="position: fixed; bottom: 0; left: 0; right: 0; background: #2E2E2E; color: white; padding: 15px 20px; text-align: center; z-index: 1000; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; font-size: 14px;">
-    <span>Мы используем файлы cookie для улучшения работы сайта. Продолжая использовать сайт, вы соглашаетесь с <a href="privacy.html" style="color: #C7A07A; text-decoration: underline;">политикой конфиденциальности</a>.</span>
-    <button id="accept-cookies" style="background: #C7A07A; border: none; color: white; padding: 8px 25px; border-radius: 30px; cursor: pointer; font-weight: 600;">Принять</button>
-</div>
-
+<div class="footer">...</div>
+<div id="modal-form" class="modal-form">...</div>
+<script src="main.js"></script>
+<script>
+    async function loadAbout() {
+        const s = await (await fetch('/api/settings')).json();
+        document.getElementById('aboutWhoText').innerText = s.about_who || '';
+        document.getElementById('aboutMissionText').innerText = s.about_mission || '';
+        document.getElementById('aboutHistoryText').innerText = s.about_history || '';
+        const whyList = s.about_why_list ? s.about_why_list.split('|').map(item => `<li>${item.trim()}</li>`).join('') : '<li>Индивидуальный подход</li><li>Сертифицированные препараты</li>';
+        document.getElementById('aboutWhyList').innerHTML = whyList;
+        const gallery = await (await fetch('/api/gallery')).json();
+        const galleryGrid = document.getElementById('aboutGalleryGrid');
+        if (galleryGrid && gallery.length) galleryGrid.innerHTML = gallery.map(img => `<div class="gallery-item"><img src="${img.image}" onerror="this.src='https://via.placeholder.com/300x250'"></div>`).join('');
+        const doctors = await (await fetch('/api/doctors')).json();
+        const doctorsGrid = document.getElementById('aboutDoctorsGrid');
+        if (doctorsGrid && doctors.length) doctorsGrid.innerHTML = doctors.map(d => `<div class="team-card"><div class="team-photo">👩‍⚕️</div><h3 class="team-name">${escapeHtml(d.name)}</h3><p class="team-position">${escapeHtml(d.position || '')}</p><p class="team-desc">${escapeHtml(d.description || '')}</p></div>`).join('');
+    }
+    document.addEventListener('DOMContentLoaded', loadAbout);
+</script>
 </body>
 </html>

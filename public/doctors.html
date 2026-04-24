@@ -2,60 +2,39 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>Наши врачи | Кабинет косметологии by Boiko Olesia</title>
+    <title>Наши врачи</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-
-<div class="header">
-    <div class="container">
-        <a href="index.html" class="logo">Кабинет косметологии <span style="font-weight: 600;">by Boiko Olesia</span></a>
-        <div class="burger" id="burgerBtn">
-            <span></span><span></span><span></span>
-        </div>
-        <div class="nav" id="navMenu">
-            <a href="changelog.html">Что нового?</a>
-            <a href="index.html">Главная</a>
-            <a href="services.html">Услуги</a>
-            <a href="contacts.html">Контакты</a>
-            <a href="licenses.html">Лицензии</a>
-            <div class="dropdown">
-                <a href="#" class="dropbtn">О нас</a>
-                <div class="dropdown-content">
-                    <a href="about.html">О клинике</a>
-                    <a href="doctors.html">Наши врачи</a>
-                    <a href="reviews.html">Отзывы</a>
-                    <a href="vacancies.html">Вакансии</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
+<div class="header">...</div> <!-- скопировать шапку из index.html -->
 <main>
     <div class="container">
         <h1 class="page-title">Наши врачи</h1>
-        <div class="doctors-grid">
-            <div class="doctor-card">
-                <div class="doctor-photo">👩‍⚕️</div>
-                <div class="doctor-name">Олеся Бойко</div>
-                <div class="doctor-position">Врач-косметолог, основатель</div>
-                <div class="doctor-desc">Специалист по инъекционным методикам, аппаратной косметологии и контурной пластике.</div>
-                <div class="doctor-diploma">📜 Образование</div>
-            </div>
-        </div>
+        <div class="doctors-grid" id="doctorsGrid"></div>
     </div>
 </main>
-
-<div class="footer container">
-    <p>© 2026 Косметологическая клиника — Новосибирск</p>
-    <p class="footer-warning">*Имеются противопоказания, необходима консультация специалиста</p>
-    <a href="https://max.ru/u/f9LHodD0cOLWiEgRhCEgfaOuINjwMWbU_dWpgs8yVqMPhD2Jj-6M0Y_9y_U" target="_blank" rel="noopener noreferrer">Написать разработчику</a><br>
-    <p><a href="privacy.html" style="color: #8A8A8A; text-decoration: underline;">Политика конфиденциальности</a></p>
-</div>
-
-<script src="main.js" defer></script>
+<div class="footer">...</div>
+<div id="modal-form" class="modal-form">...</div>
+<script src="main.js"></script>
+<script>
+    async function loadDoctorsPage() {
+        const res = await fetch('/api/doctors');
+        const doctors = await res.json();
+        const grid = document.getElementById('doctorsGrid');
+        if (grid && doctors.length) {
+            grid.innerHTML = doctors.map(d => `
+                <div class="doctor-card">
+                    <div class="doctor-photo">👩‍⚕️</div>
+                    <div class="doctor-name">${escapeHtml(d.name)}</div>
+                    <div class="doctor-position">${escapeHtml(d.position || '')}</div>
+                    <div class="doctor-desc">${escapeHtml(d.description || '')}</div>
+                    ${d.experience ? `<div class="doctor-diploma">📜 ${escapeHtml(d.experience)}</div>` : ''}
+                </div>
+            `).join('');
+        } else grid.innerHTML = '<p>Информация о врачах скоро появится</p>';
+    }
+    document.addEventListener('DOMContentLoaded', loadDoctorsPage);
+</script>
 </body>
 </html>

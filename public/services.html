@@ -2,26 +2,23 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>Прайс-лист | Кабинет косметологии by Boiko Olesia</title>   
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Прайс-лист | Косметология</title>
     <link rel="stylesheet" href="style.css">
-    <script src="main.js" defer></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
 <div class="header">
     <div class="container">
-        <a href="index.html" class="logo">Кабинет косметологии <span style="font-weight: 600;">by Boiko Olesia</span></a>
-        <div class="burger" id="burgerBtn">
-            <span></span><span></span><span></span>
-        </div>
+        <a href="index.html" class="logo">Кабинет косметологии <span>by Boiko Olesia</span></a>
+        <div class="burger" id="burgerBtn"><span></span><span></span><span></span></div>
         <div class="nav" id="navMenu">
-            <a href="changelog.html">Что нового?</a>
             <a href="index.html">Главная</a>
             <a href="services.html">Услуги</a>
             <a href="contacts.html">Контакты</a>
             <a href="licenses.html">Лицензии</a>
+            <a href="news.html">Новости</a>
             <div class="dropdown">
                 <a href="#" class="dropbtn">О нас</a>
                 <div class="dropdown-content">
@@ -38,49 +35,12 @@
 <main>
     <div class="container">
         <h1 class="page-title">Прайс-лист</h1>
-
         <div class="table-wrapper">
-            <table class="price-table">
-                <thead>
-                    <tr>
-                        <th>Код услуги</th>
-                        <th>Наименование услуги</th>
-                        <th>Стоимость, руб.</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr><td>1</td><td>Первичный приём (консультация, осмотр)</td><td class="price">от 1 500 ₽</td></tr>
-                    <tr><td>2</td><td>Комбинированное очищение кожи лица</td><td class="price">от 3 500 ₽</td></tr>
-                    <tr><td>3</td><td>Комбинированное очищение кожи лица с поверхностным пилингом</td><td class="price">от 4 500 ₽</td></tr>
-                    <tr><td>4</td><td>Очищение кожи "Ультразвуковая чистка лица"</td><td class="price">от 2 500 ₽</td></tr>
-                    <tr><td>5</td><td>Очищение кожи "Ультразвуковая чистка лица" с поверхностным пилингом</td><td class="price">от 3 500 ₽</td></tr>
-                    <tr><td>6</td><td>Очищение кожи спины</td><td class="price">от 4 000 ₽</td></tr>
-                    <tr><td>7</td><td>Уходовые программы</td><td class="price">от 3 000 ₽</td></tr>
-                    <tr><td>8</td><td>Карбокситерапия кожи лица</td><td class="price">от 2 500 ₽</td></tr>
-                    <tr><td>9</td><td>Альгинатная маска</td><td class="price">от 1 500 ₽</td></tr>
-                    <tr><td>10</td><td>Аппаратные методики</td><td class="price">от 2 000 ₽</td></tr>
-                    <tr><td>11</td><td>Микроигольчатый уход (лицо полностью)</td><td class="price">от 5 000 ₽</td></tr>
-                    <tr><td>12</td><td>Микроигольчатый уход (лицо + шея)</td><td class="price">от 6 500 ₽</td></tr>
-                    <tr><td>13</td><td>Микроигольчатый уход (голова)</td><td class="price">от 4 500 ₽</td></tr>
-                    <tr><td>14</td><td>Воздействие токами ультравысокой частоты на кожу в сочетании с карбокситерапией (лицо)</td><td class="price">от 3 000 ₽</td></tr>
-                    <tr><td>15</td><td>Микротоковая терапия для лица</td><td class="price">от 2 500 ₽</td></tr>
-                    <tr><td>16</td><td>Кислотные уходы с применением поверхностных пилингов</td><td class="price">от 3 500 ₽</td></tr>
-                    <tr><td>17</td><td>Дерматологический поверхностный пилинг "Medi-derma ORANG Peel"</td><td class="price">от 4 000 ₽</td></tr>
-                    <tr><td>18</td><td>Дерматологический поверхностный пилинг: миндальный, молочный, азелаиновый, салициловый</td><td class="price">от 3 000 ₽</td></tr>
-                    <tr><td>19</td><td>Ретиноловые пилинги</td><td class="price">от 4 500 ₽</td></tr>
-                    <tr><td>20</td><td>Дерматологический пилинг (ретиноловый) "Medi-derma ORANG Peel"</td><td class="price">от 5 000 ₽</td></tr>
-                    <tr><td>21</td><td>Пилинг "Джеснера"</td><td class="price">от 3 500 ₽</td></tr>
-                    <tr><td>22</td><td>Дерматологический пилинг (ретиноловый) Skin Synergy</td><td class="price">от 5 500 ₽</td></tr>
-                    <tr><td>23</td><td>Голливудский пилинг (Джеснера + ретиноловый SS)</td><td class="price">от 6 000 ₽</td></tr>
-                    <tr><td>24</td><td>Дерматологический пилинг со спикулами Derma-time</td><td class="price">от 4 000 ₽</td></tr>
-                    <tr><td>25</td><td>Пилинги-биоревитализанты</td><td class="price">от 5 000 ₽</td></tr>
-                    <tr><td>26</td><td>Дерматологический пилинг PRX-T33</td><td class="price">от 6 500 ₽</td></tr>
-                    <tr><td>27</td><td>Дерматологический пилинг BioRePeel</td><td class="price">от 7 000 ₽</td></tr>
-                    <tr><td>28</td><td>Дерматологический пилинг Peach Peel</td><td class="price">от 4 500 ₽</td></tr>
-                </tbody>
+            <table class="price-table" id="servicesTable">
+                <thead><tr><th>Код</th><th>Услуга</th><th>Стоимость</th></tr></thead>
+                <tbody id="servicesTableBody"></tbody>
             </table>
         </div>
-
         <div style="text-align: center; margin: 30px 0;">
             <button class="btn-telegram" onclick="openModal()">📝 Записаться на приём</button>
         </div>
@@ -89,84 +49,43 @@
 
 <div class="footer container">
     <p>© 2026 Косметологическая клиника — Новосибирск</p>
-    <p style="font-size: 12px; margin-top: 8px;">*Имеются противопоказания, необходима консультация специалиста</p>
-    <a href="https://max.ru/u/f9LHodD0cOLWiEgRhCEgfaOuINjwMWbU_dWpgs8yVqMPhD2Jj-6M0Y_9y_U" target="_blank" rel="noopener noreferrer">Написать разработчику</a><br>
-    <p><a href="privacy.html" style="color: #8A8A8A; text-decoration: underline;">Политика конфиденциальности</a></p>
-    <p>Дизайн и разработка: Royskey</p>
+    <p style="font-size: 12px;">*Имеются противопоказания, необходима консультация специалиста</p>
+    <a href="privacy.html">Политика конфиденциальности</a> | <a href="/admin/login.html">Вход для администратора</a>
 </div>
 
-<!-- МОДАЛЬНАЯ ФОРМА (такая же как на главной) -->
 <div id="modal-form" class="modal-form">
     <div class="modal-form-content">
         <span class="modal-form-close">&times;</span>
-        <div class="modal-form-header">
-            <h2>Записаться на приём</h2>
-            <p>Заполните форму, и мы свяжемся с вами</p>
-        </div>
+        <div class="modal-form-header"><h2>Записаться на приём</h2><p>Заполните форму</p></div>
         <form id="beauty-application-form">
-            <div class="form-group">
-                <label for="modal-name">Ваше имя *</label>
-                <input type="text" id="modal-name" name="name" required>
-                <span class="form-error" id="name-error"></span>
-            </div>
-            <div class="form-group">
-                <label for="modal-phone">Номер телефона *</label>
-                <input type="tel" id="modal-phone" name="phone" placeholder="+7 (___) ___-__-__" required>
-                <span class="form-error" id="phone-error"></span>
-            </div>
-            <div class="form-group">
-                <label for="modal-service">Услуга (по желанию)</label>
-                <select id="modal-service" name="service">
-                    <option value="">Выберите услугу</option>
-                    <option>Первичная консультация</option>
-                    <option>Чистка лица</option>
-                    <option>Пилинг</option>
-                    <option>Биоревитализация</option>
-                    <option>Контурная пластика</option>
-                    <option>Ботулинотерапия</option>
-                    <option>Уходовая программа</option>
-                </select>
-            </div>
-            <div class="form-row">
-                <div class="form-group">
-                    <label for="modal-date">Удобная дата</label>
-                    <input type="date" id="modal-date" name="date">
-                </div>
-                <div class="form-group">
-                    <label for="modal-time">Удобное время</label>
-                    <input type="time" id="modal-time" name="time">
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="modal-message">Комментарий</label>
-                <textarea id="modal-message" name="message" rows="3" placeholder="Дополнительная информация..."></textarea>
-            </div>
-            <div class="form-checkbox">
-                <input type="checkbox" id="modal-consent" name="consent" required>
-                <label for="modal-consent">Я соглашаюсь на <a href="privacy.html" target="_blank">обработку персональных данных</a></label>
-            </div>
-            <button type="submit" class="modal-submit-btn">Отправить заявку</button>
-            <div id="modal-form-status" class="form-status"></div>
+            <div class="form-group"><label>Имя *</label><input type="text" id="modal-name" required></div>
+            <div class="form-group"><label>Телефон *</label><input type="tel" id="modal-phone" placeholder="+7 (___) ___-__-__" required></div>
+            <div class="form-group"><label>Услуга</label><select id="modal-service"></select></div>
+            <div class="form-row"><div class="form-group"><label>Дата</label><input type="date" id="modal-date"></div><div class="form-group"><label>Время</label><input type="time" id="modal-time"></div></div>
+            <div class="form-group"><label>Комментарий</label><textarea id="modal-message" rows="3"></textarea></div>
+            <div class="form-checkbox"><input type="checkbox" id="modal-consent" required><label>Согласие на обработку данных</label></div>
+            <button type="submit" class="modal-submit-btn">Отправить</button>
+            <div id="modal-form-status"></div>
         </form>
     </div>
 </div>
 
+<script src="main.js"></script>
 <script>
-    const burger = document.getElementById('burgerBtn');
-    const navMenu = document.getElementById('navMenu');
-    if (burger) {
-        burger.addEventListener('click', () => {
-            burger.classList.toggle('active');
-            navMenu.classList.toggle('active');
-        });
-        document.querySelectorAll('.nav a').forEach(link => {
-            link.addEventListener('click', () => {
-                burger.classList.remove('active');
-                navMenu.classList.remove('active');
-            });
-        });
+    async function loadServicesPage() {
+        const res = await fetch('/api/services');
+        const services = await res.json();
+        const tbody = document.getElementById('servicesTableBody');
+        if (tbody && services.length) {
+            tbody.innerHTML = services.map(s => `<tr><td data-label="Код">${s.id}</td><td data-label="Услуга">${escapeHtml(s.name)}</td><td data-label="Стоимость" class="price">${escapeHtml(s.price)}</td></tr>`).join('');
+        } else tbody.innerHTML = '<tr><td colspan="3">Услуги временно не загружены</td></tr>';
+        const select = document.getElementById('modal-service');
+        if (select && services.length) {
+            select.innerHTML = '<option value="">Выберите услугу</option>' + services.map(s => `<option value="${escapeHtml(s.name)}">${escapeHtml(s.name)}</option>`).join('');
+        }
     }
+    function escapeHtml(t) { if(!t) return ''; const d=document.createElement('div'); d.textContent=t; return d.innerHTML; }
+    document.addEventListener('DOMContentLoaded', loadServicesPage);
 </script>
-
 </body>
 </html>

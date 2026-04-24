@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="ru">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
@@ -8,21 +7,20 @@
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
-
 <body>
 
 <div class="header">
     <div class="container">
-        <a href="index.html" class="logo">Кабинет косметологии <span style="font-weight: 600;">by Boiko Olesia</span></a>
+        <a href="index.html" class="logo">Кабинет косметологии <span>by Boiko Olesia</span></a>
         <div class="burger" id="burgerBtn">
             <span></span><span></span><span></span>
         </div>
         <div class="nav" id="navMenu">
-            <a href="changelog.html">Что нового?</a>
             <a href="index.html">Главная</a>
             <a href="services.html">Услуги</a>
             <a href="contacts.html">Контакты</a>
             <a href="licenses.html">Лицензии</a>
+            <a href="news.html">Новости</a>
             <div class="dropdown">
                 <a href="#" class="dropbtn">О нас</a>
                 <div class="dropdown-content">
@@ -44,32 +42,27 @@
             <div class="contact-card">
                 <div class="contact-icon">📱</div>
                 <h3>Telegram</h3>
-                <a href="https://t.me/hahahustla" target="_blank">Написать в Telegram</a>
+                <a href="#" id="contactTelegram" target="_blank">Написать в Telegram</a>
             </div>
             <div class="contact-card">
                 <div class="contact-icon">📞</div>
                 <h3>По телефону</h3>
-                <a href="tel:+79991234567">+7 (999) 123-45-67</a>
+                <a href="#" id="contactPhoneLink"><span id="contactPhone"></span></a>
             </div>
             <div class="contact-card">
                 <div class="contact-icon">📧</div>
                 <h3>Email</h3>
-                <a href="mailto:info@cosmetology.ru">info@cosmetology.ru</a>
+                <a href="#" id="contactEmail"></a>
             </div>
         </div>
 
         <div class="address-detail">
-            <p><strong>📍 Новосибирск, ул. Ленина, 3</strong></p>
-            <p>Вход со двора, 3 этаж, офис 335</p>
+            <p><strong>📍 Адрес:</strong> <span id="contactAddress"></span></p>
         </div>
 
         <div class="work-hours">
             <h3>🕒 Режим работы</h3>
-            <table class="work-table">
-                <tr><td>Понедельник – Пятница</td><td>9:00 – 22:00</td></tr>
-                <tr><td>Суббота</td><td>Выходной</td></tr>
-                <tr><td>Воскресенье</td><td>9:00 – 22:00</td></tr>
-            </table>
+            <div id="workHoursDisplay"></div>
         </div>
 
         <div class="map-container">
@@ -85,12 +78,12 @@
 <div class="footer container">
     <p>© 2026 Косметологическая клиника — Новосибирск</p>
     <p style="font-size: 12px; margin-top: 8px;">*Имеются противопоказания, необходима консультация специалиста</p>
-    <a href="https://max.ru/u/f9LHodD0cOLWiEgRhCEgfaOuINjwMWbU_dWpgs8yVqMPhD2Jj-6M0Y_9y_U" target="_blank" rel="noopener noreferrer">Написать разработчику</a><br>
+    <a href="#" id="footerTelegramLink" target="_blank">Написать разработчику</a><br>
     <p><a href="privacy.html" style="color: #8A8A8A; text-decoration: underline;">Политика конфиденциальности</a></p>
-    <p>Дизайн и разработка: Royskey</p>
+    <p><a href="/admin/login.html" style="color: #8A8A8A; text-decoration: underline;">Вход для администратора</a></p>
 </div>
 
-<!-- МОДАЛЬНАЯ ФОРМА -->
+<!-- Модальная форма -->
 <div id="modal-form" class="modal-form">
     <div class="modal-form-content">
         <span class="modal-form-close">&times;</span>
@@ -113,13 +106,6 @@
                 <label for="modal-service">Услуга (по желанию)</label>
                 <select id="modal-service" name="service">
                     <option value="">Выберите услугу</option>
-                    <option>Первичная консультация</option>
-                    <option>Чистка лица</option>
-                    <option>Пилинг</option>
-                    <option>Биоревитализация</option>
-                    <option>Контурная пластика</option>
-                    <option>Ботулинотерапия</option>
-                    <option>Уходовая программа</option>
                 </select>
             </div>
             <div class="form-row">
@@ -146,7 +132,26 @@
     </div>
 </div>
 
-<script src="main.js" defer></script>
+<script src="main.js"></script>
+<script>
+    async function loadContactsPage() {
+        try {
+            const res = await fetch('/api/settings');
+            const s = await res.json();
+            document.getElementById('contactPhone').innerText = s.phone || '';
+            document.getElementById('contactPhoneLink').href = `tel:${s.phone || ''}`;
+            document.getElementById('contactEmail').innerText = s.email || '';
+            document.getElementById('contactEmail').href = `mailto:${s.email || ''}`;
+            document.getElementById('contactTelegram').href = s.telegram || '#';
+            document.getElementById('contactAddress').innerText = s.address || '';
+            const whDiv = document.getElementById('workHoursDisplay');
+            if (whDiv) whDiv.innerHTML = s.work_hours || 'Пн-Пт: 9:00–22:00<br>Сб: выходной<br>Вс: 9:00–22:00';
+            const footerTelegram = document.getElementById('footerTelegramLink');
+            if (footerTelegram && s.telegram) footerTelegram.href = s.telegram;
+        } catch(e) { console.error(e); }
+    }
+    document.addEventListener('DOMContentLoaded', loadContactsPage);
+</script>
 
 <div id="cookie-banner" style="position: fixed; bottom: 0; left: 0; right: 0; background: #2E2E2E; color: white; padding: 15px 20px; text-align: center; z-index: 1000; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; font-size: 14px;">
     <span>Мы используем файлы cookie для улучшения работы сайта. Продолжая использовать сайт, вы соглашаетесь с <a href="privacy.html" style="color: #C7A07A; text-decoration: underline;">политикой конфиденциальности</a>.</span>

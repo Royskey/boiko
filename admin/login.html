@@ -2,105 +2,40 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Вход в админ-панель</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: 'Montserrat', sans-serif;
-            background: #FDFCFA;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-        }
-        .login-card {
-            background: white;
-            padding: 40px;
-            border-radius: 28px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-            width: 350px;
-            text-align: center;
-            border: 1px solid #F0EDE8;
-        }
-        h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 28px;
-            margin-bottom: 30px;
-        }
-        input {
-            width: 100%;
-            padding: 14px;
-            margin-bottom: 15px;
-            border: 1px solid #E0DCD6;
-            border-radius: 16px;
-            font-size: 16px;
-        }
-        button {
-            width: 100%;
-            background: #C7A07A;
-            color: white;
-            border: none;
-            padding: 14px;
-            border-radius: 30px;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-        }
-        button:hover {
-            background: #B0855E;
-        }
-        .error {
-            color: #d9534f;
-            margin-bottom: 15px;
-            font-size: 14px;
-        }
+        body { font-family: 'Montserrat', sans-serif; background: #FDFCFA; display: flex; justify-content: center; align-items: center; height: 100vh; }
+        .login-card { background: white; padding: 40px; border-radius: 28px; width: 350px; text-align: center; }
+        input { width: 100%; padding: 12px; margin: 10px 0; border-radius: 30px; border: 1px solid #E0DCD6; }
+        button { background: #C7A07A; color: white; padding: 12px; border: none; border-radius: 30px; width: 100%; cursor: pointer; }
     </style>
 </head>
 <body>
-    <div class="login-card">
-        <h1>Вход в админку</h1>
-        <div id="error" class="error"></div>
-        <input type="text" id="username" placeholder="Логин" value="admin">
-        <input type="password" id="password" placeholder="Пароль">
-        <button onclick="login()">Войти</button>
-    </div>
-
-    <script>
-        async function login() {
-            const username = document.getElementById('username').value;
-            const password = document.getElementById('password').value;
-            const errorDiv = document.getElementById('error');
-            
-            try {
-                const response = await fetch('/api/admin/login', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ username, password })
-                });
-                
-                const data = await response.json();
-                
-                if (response.ok) {
-                    localStorage.setItem('adminToken', data.token);
-                    window.location.href = 'index.html';
-                } else {
-                    errorDiv.textContent = data.error || 'Ошибка входа';
-                }
-            } catch (error) {
-                errorDiv.textContent = 'Ошибка соединения';
-            }
-        }
-        
-        // Если уже авторизован, перенаправляем
-        if (localStorage.getItem('adminToken')) {
+<div class="login-card">
+    <h2>Вход в админ-панель</h2>
+    <input type="text" id="username" placeholder="Логин" value="admin">
+    <input type="password" id="password" placeholder="Пароль">
+    <button onclick="login()">Войти</button>
+    <div id="error" style="color:red; margin-top:10px;"></div>
+</div>
+<script>
+    async function login() {
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+        const res = await fetch('/api/admin/login', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ username, password })
+        });
+        const data = await res.json();
+        if (res.ok) {
+            localStorage.setItem('adminToken', data.token);
             window.location.href = 'index.html';
+        } else {
+            document.getElementById('error').innerText = data.error || 'Ошибка';
         }
-    </script>
+    }
+    if (localStorage.getItem('adminToken')) window.location.href = 'index.html';
+</script>
 </body>
 </html>
